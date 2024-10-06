@@ -1,0 +1,31 @@
+---
+volumes:
+  pg_data:
+  es_data:
+  ollama_data:
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    ports:
+      - 5432:5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "${USER}"
+      POSTGRES_HOST_AUTH_METHOD: trust
+  elasticsearch_new:
+    image: elasticsearch:8.15.1
+    ports:
+      - 9200:9200
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    environment:
+      ES_JAVA_OPTS: -Xmx2g -Xms2g
+      discovery.type: single-node # We only need to run a single node locally
+      xpack.security.enabled: "false"
+  ollama:
+    image: ollama/ollama
+    ports:
+      - 11434:11434
+    volumes:
+      - ollama_data:/root/.ollama
