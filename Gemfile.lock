@@ -121,12 +121,17 @@ GEM
       tzinfo
     ethon (0.16.0)
       ffi (>= 1.15.0)
+    event_stream_parser (1.0.0)
     faraday (2.12.0)
       faraday-net_http (>= 2.0, < 3.4)
       json
       logger
+    faraday-multipart (1.1.0)
+      multipart-post (~> 2.0)
     faraday-net_http (3.3.0)
       net-http
+    faraday-retry (2.3.1)
+      faraday (~> 2.0)
     faraday-typhoeus (1.1.0)
       faraday (~> 2.0)
       typhoeus (~> 1.4)
@@ -183,6 +188,7 @@ GEM
     minitest (5.25.1)
     msgpack (1.7.3)
     multi_json (1.15.0)
+    multipart-post (2.4.1)
     neighbor (0.4.3)
       activerecord (>= 6.1)
     net-http (0.4.1)
@@ -314,6 +320,14 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
+    ruby_llm (1.2.0)
+      base64
+      event_stream_parser (~> 1)
+      faraday (~> 2)
+      faraday-multipart (~> 1)
+      faraday-net_http (~> 3)
+      faraday-retry (~> 2)
+      zeitwerk (~> 2)
     rubyzip (2.3.2)
     searchkick (5.4.0)
       activemodel (>= 6.1)
@@ -408,6 +422,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  dotenv
   elasticsearch
   importmap-rails
   jbuilder
@@ -420,6 +435,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 8.0.0.beta1)
   rubocop-rails-omakase
+  ruby_llm
   searchkick
   selenium-webdriver
   solid_cable
@@ -433,4 +449,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   2.5.11
+   2.6.9

@@ -43,11 +43,13 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "baran" # for text splitting
+gem "dotenv"
 gem "ollama-ai" # ollama client
 gem "neighbor" # easy nearest neighbor for postgres
 gem "searchkick" # easy elasticsearch integration
 gem "elasticsearch"
 gem "phlex-rails"
+gem "ruby_llm"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
