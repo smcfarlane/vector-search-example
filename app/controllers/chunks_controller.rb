@@ -12,7 +12,7 @@ class ChunksController < ApplicationController
         .nearest_neighbors(
           :embedding,
           query_embedding,
-          distance: "cosine")
+          distance: "taxicab")
         .first(20)
       elsif params[:commit] == "es"
         Chunk.search(body: {

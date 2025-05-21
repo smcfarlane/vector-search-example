@@ -9,7 +9,7 @@ class Books::IndexView < ApplicationView
   def view_template
     ul do
       @books.each do |book|
-        li do
+        li(class: "mb-2") do
           link_to book_path(book), class: "hover:text-white" do
             plain book.title
             plain " | "

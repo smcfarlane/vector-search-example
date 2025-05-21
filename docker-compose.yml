@@ -14,7 +14,7 @@ services:
       POSTGRES_USER: "${USER}"
       POSTGRES_HOST_AUTH_METHOD: trust
   elasticsearch_new:
-    image: elasticsearch:8.15.1
+    image: elasticsearch:8.18.1
     ports:
       - 9200:9200
     volumes:

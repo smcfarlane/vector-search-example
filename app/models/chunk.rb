@@ -14,7 +14,7 @@ class Chunk < ApplicationRecord
         vector: {
           type: "dense_vector",
           dims: 384,
-          similarity: "cosine"
+          similarity: "dot_product"
         }
       }
     }
