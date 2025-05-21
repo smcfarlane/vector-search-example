@@ -15,14 +15,7 @@ class ChunksController < ApplicationController
           distance: "taxicab")
         .first(20)
       elsif params[:commit] == "es"
-        Chunk.search(body: {
-          knn: {
-            field: "vector",
-            query_vector: query_embedding
-          },
-          size: 20,
-          timeout: "11000ms"
-        }).results
+        Chunk.search(knn: { field: "vector", vector: query_embedding }, where: { book_id: book.id }, limit: 20).results
       end
     render Chunks::SearchView.new(
       book: book,

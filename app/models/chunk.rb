@@ -8,16 +8,7 @@ class Chunk < ApplicationRecord
   searchkick(
     batch_size: 200,
     default_fields: [ :text ],
-    merge_mappings: true,
-    mappings: {
-      properties: {
-        vector: {
-          type: "dense_vector",
-          dims: 384,
-          similarity: "dot_product"
-        }
-      }
-    }
+    knn: { vector: { dimensions: 384, distance: "inner_product", m: 16, ef_construction: 100 } }
   )
 
   def search_data
